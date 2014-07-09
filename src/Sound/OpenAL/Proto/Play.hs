@@ -59,7 +59,7 @@ playSound =
     -- [buffer1] <- genObjectNames 1
     [buffer2] <- genObjectNames 1
 
-    capture (Just "Built-in Microphone") (float2Double duration) $ \memRegion -> do
+    capture Nothing (float2Double duration) $ \memRegion -> do
             bufferData buffer2 $= BufferData memRegion Mono16 (fromIntegral sampleRate)
             -- queueBuffers source [buffer1]
             queueBuffers source [buffer2]
